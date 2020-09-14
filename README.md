@@ -1,3 +1,4 @@
 # agent_yang
 BP and CNN
-All net in to nn package.
+1.All net in to nn package.
+2.Get train-images.idx3-ubyte to data folder from unzip data/train-images.idx3-ubyte.zip.
