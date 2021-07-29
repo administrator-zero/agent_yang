@@ -4,18 +4,18 @@ from nn.full_connected import FullConnected
 
 
 class YangNet(object):
-    def __init__(self):
+    def __init__(self, num, act, r):
         """
         Init neural network.
         """
         self.layers = []
         self.learn_rate = 0.01
-        layer = FullConnected(784, 100, Relu())
+        layer = FullConnected(num[0], num[1], act[1], r)
         self.layers.append(layer)
-        layer = FullConnected(100, 10, Sigmoid())
+        layer = FullConnected(layer.output_size, num[2], act[2], r)
         self.layers.append(layer)
 
-        pre_activator = Identity
+        pre_activator = act[0]
         for layer in self.layers:
             layer.set_pre_activator(pre_activator)
             pre_activator = layer.activator
