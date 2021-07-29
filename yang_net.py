@@ -23,7 +23,7 @@ class YangNet(object):
         self.layers.append(c3)
         s4 = MaxPooling(8, 8, 64, 2, 2, 2)
         self.layers.append(s4)
-        fc5 = FullConnected(1024, 10, Sigmoid())
+        fc5 = FullConnected(1024, 10, Sigmoid(), 0.1)
         self.layers.append(fc5)
 
         pre_activator = Identity
