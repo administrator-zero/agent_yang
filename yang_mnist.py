@@ -3,10 +3,12 @@ import numpy as np
 from datetime import datetime
 from image_loader import ImageLoader
 from label_loader import LabelLoader
+from nn.activators import Sigmoid, Identity, Relu
 # from yang_net import YangNet
 from bp_net import YangNet
 # from numba import vectorize
 # @vectorize(['float32(float32, float32)'], target='cuda')
+
 
 def get_training_data_set():
     """
@@ -80,7 +82,7 @@ def train_and_evaluate():
 
     train_data_set_data = normalization(np.array(train_data_set_data))
     test_data_set_data = normalization(np.array(test_data_set_data))
-    network = YangNet()
+    network = YangNet([784, 128, 10],[Identity, Relu, Sigmoid] ,0.1)
     # network = BPNet()
     while True:
         epoch += 1
