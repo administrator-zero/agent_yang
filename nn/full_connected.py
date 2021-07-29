@@ -6,7 +6,7 @@ class FullConnected(Base):
     """
     Full connected layer of BP
     """
-    def __init__(self, input_size, output_size, activator):
+    def __init__(self, input_size, output_size, activator, r):
         """
         Constructor
         input_size: The input size of this layer.
@@ -18,9 +18,9 @@ class FullConnected(Base):
         self.output_size = output_size
         self.activator = activator
         # The matrix of weights in this layer.
-        self.W = np.random.uniform(-0.01, 0.01, (output_size, input_size))
+        self.W = np.random.uniform(-r, r, (output_size, input_size))
         # The vector of bias in this layer.
-        self.b = np.random.uniform(-0.01, 0.01, (output_size, 1))
+        self.b = np.random.uniform(-r, r, (output_size, 1))
         # The out result of this layer.
         self.output = np.zeros((output_size, 1))
         # The real input matrix of this layer, maybe is 3 dim.
