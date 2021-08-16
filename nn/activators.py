@@ -9,8 +9,9 @@ class Relu(object):
 
     @staticmethod
     def backward(output):
-        temp = np.maximum(0, output)
-        return np.minimum(1, temp)
+        x = np.maximum(0, output)
+        x[x > 0] = 1
+        return x
 
 
 class Identity(object):
